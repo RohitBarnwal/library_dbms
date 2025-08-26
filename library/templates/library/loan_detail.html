@@ -1,0 +1,19 @@
+
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h1>Loan {{ loan.id }}</h1>
+    <p><strong>Member:</strong> {{ loan.member.name }}</p>
+    <p><strong>Staff:</strong> {{ loan.staff.name }}</p>
+    <p><strong>Issue Date:</strong> {{ loan.issue_date }}</p>
+    <p><strong>Due Date:</strong> {{ loan.due_date }}</p>
+    <p><strong>Return Date:</strong> {{ loan.return_date|default:"Not returned" }}</p>
+    <p><strong>Fine:</strong> {{ loan.fine|default:"No fine" }}</p>
+    <p><strong>Books:</strong>
+        <ul>
+            {% for book in loan.books.all %}
+                <li>{{ book.title }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+{% endblock %}

@@ -1,0 +1,11 @@
+
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h1>Members</h1>
+    <ul>
+        {% for member in members %}
+            <li><a href="{% url 'member-detail' member.pk %}">{{ member.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

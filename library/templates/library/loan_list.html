@@ -1,0 +1,11 @@
+
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h1>Loans</h1>
+    <ul>
+        {% for loan in loans %}
+            <li><a href="{% url 'loan-detail' loan.pk %}">Loan {{ loan.id }} by {{ loan.member.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

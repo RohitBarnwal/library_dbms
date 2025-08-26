@@ -1,0 +1,10 @@
+
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h1>{{ member.name }}</h1>
+    <p><strong>Address:</strong> {{ member.address }}</p>
+    <p><strong>Phone:</strong> {{ member.phone }}</p>
+    <p><strong>Email:</strong> {{ member.email }}</p>
+    <p><strong>Membership Date:</strong> {{ member.membership_date }}</p>
+{% endblock %}
