@@ -6,6 +6,10 @@
     <div class="mb-2">
         <a href="?sort=asc" class="btn btn-primary">Sort by Name (A-Z)</a>
         <a href="?sort=desc" class="btn btn-primary">Sort by Name (Z-A)</a>
+        <form method="get" class="form-inline d-inline-block ml-2">
+            <input type="text" name="category" placeholder="Filter by Category" class="form-control mr-2" value="{{ request.GET.category }}">
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
     </div>
     <ul class="list-group mb-4">
         {% for book in books %}

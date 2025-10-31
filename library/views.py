@@ -18,6 +18,8 @@ class BookListView(ListView):
             return queryset.order_by('title')
         elif sort == 'desc':
             return queryset.order_by('-title')
+        if self.request.GET.get('category'):
+            queryset = queryset.filter(category=self.request.GET.get('category'))
         return queryset
 
 class BookDetailView(DetailView):
