@@ -20,6 +20,11 @@ class BookListView(ListView):
             return queryset.order_by('-title')
         if self.request.GET.get('category'):
             queryset = queryset.filter(category=self.request.GET.get('category'))
+        
+        search_query = self.request.GET.get('q')
+        if search_query:
+            queryset = queryset.filter(title__icontains=search_query) | queryset.filter(authors__name__icontains=search_query)
+        
         return queryset
 
 class BookDetailView(DetailView):

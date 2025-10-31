@@ -10,6 +10,10 @@
             <input type="text" name="category" placeholder="Filter by Category" class="form-control mr-2" value="{{ request.GET.category }}">
             <button type="submit" class="btn btn-primary">Filter</button>
         </form>
+        <form method="get" class="form-inline d-inline-block ml-2">
+            <input type="text" name="q" placeholder="Search by Title or Author" class="form-control mr-2" value="{{ request.GET.q }}">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
     </div>
     <ul class="list-group mb-4">
         {% for book in books %}
