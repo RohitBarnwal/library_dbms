@@ -22,7 +22,6 @@ A web-based application to manage a library's books, members, and loans, built w
 ![Library ER Diagram](library_er_diagram.png)
 
 ## Project Structure
-
 ```
 /home/rohitkumar/gemini_projects/Library Database management system/
 ├───.gitignore
