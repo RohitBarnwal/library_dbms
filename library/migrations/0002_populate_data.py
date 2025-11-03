@@ -49,6 +49,21 @@ def populate_data(apps, schema_editor):
     LoanDetail.objects.create(loan=loan1, book=book2)
     LoanDetail.objects.create(loan=loan2, book=book3)
 
+    # Create Publishers for books on Indian History
+    publisher3 = Publisher.objects.create(name='Rupa Publications', address='7/16, Ansari Road, Daryaganj, New Delhi - 110002', contact_number='011-23278586')
+
+    # Create Authors for books on Indian History
+    author4 = Author.objects.create(name='R.S. Sharma', biography='Indian historian and academic who specialized in the history of ancient and early medieval India.', nationality='Indian')
+    author5 = Author.objects.create(name='A.L. Basham', biography='British historian and Indologist who wrote about ancient Indian history and culture.', nationality='British')
+
+    # Create Books on Ancient Indian History
+    book4 = Book.objects.create(title='India\'s Ancient Past', isbn='9780195687859', year_published=2005, category='History', price=15.99, publisher=publisher3)
+    book5 = Book.objects.create(title='The Wonder That Was India', isbn='9780330439091', year_published=1954, category='History', price=19.99, publisher=publisher3)
+
+    # Create Book-Author relationships for books on Indian History
+    BookAuthor.objects.create(book=book4, author=author4)
+    BookAuthor.objects.create(book=book5, author=author5)
+
 class Migration(migrations.Migration):
 
     dependencies = [

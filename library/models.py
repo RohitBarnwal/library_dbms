@@ -11,7 +11,7 @@ class Member(models.Model):
         return self.name
 
 class Staff(models.Model):
-    name = models.CharField(max_length=100)
+    name1 = models.CharField(max_length=100)
     role = models.CharField(max_length=100)
     phone = models.CharField(max_length=15)
     email = models.EmailField(unique=True)

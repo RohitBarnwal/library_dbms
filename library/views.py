@@ -9,6 +9,23 @@ class BookListView(ListView):
     model = Book
     template_name = 'library/book_list.html'
     context_object_name = 'books'
+    paginate_by = 10
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        sort = self.request.GET.get('sort')
+        if sort == 'asc':
+            return queryset.order_by('title')
+        elif sort == 'desc':
+            return queryset.order_by('-title')
+        if self.request.GET.get('category'):
+            queryset = queryset.filter(category=self.request.GET.get('category'))
+        
+        search_query = self.request.GET.get('q')
+        if search_query:
+            queryset = queryset.filter(title__icontains=search_query) | queryset.filter(authors__name__icontains=search_query)
+        
+        return queryset
 
 class BookDetailView(DetailView):
     model = Book
